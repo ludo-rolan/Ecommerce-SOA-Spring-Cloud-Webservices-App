@@ -39,3 +39,11 @@
 
 ### Eureka ui
 <img src="screenshots/eurekaUI.png" />
+
+
+### liste de clients par la route dynamique
+<img src="screenshots/listOfClientsByDynamicRoute.png" />
+
+
+### inventaire de produits par la route dynamique
+<img src="screenshots/listOfProductsByDynamicRoute.png" />

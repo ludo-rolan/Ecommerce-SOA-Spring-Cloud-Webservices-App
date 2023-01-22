@@ -2,6 +2,9 @@ package com.services.gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.ReactiveDiscoveryClient;
+import org.springframework.cloud.gateway.discovery.DiscoveryClientRouteDefinitionLocator;
+import org.springframework.cloud.gateway.discovery.DiscoveryLocatorProperties;
 import org.springframework.cloud.gateway.route.RouteDefinitionLocator;
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
@@ -14,7 +17,7 @@ public class GatewayApplication {
 		SpringApplication.run(GatewayApplication.class, args);
 	}
 	
-	@Bean
+	// @Bean
 	public RouteLocator routeLocator (RouteLocatorBuilder routeLocatorBuilder)
 	{
 		// configuration statique des routes
@@ -23,11 +26,21 @@ public class GatewayApplication {
 //				.route(r -> r.path("/products/**").uri("http://localhost:8082/"))
 //				.build();
 		
-		// configuration dynamique des routes en utilisant le load balancer de eureka
+		// configuration statique des routes en utilisant le load balancer de eureka
 		return routeLocatorBuilder.routes()
 				.route(r -> r.path("/customers/**").uri("lb://CUSTOMER-SERVICE/"))
 				.route(r -> r.path("/products/**").uri("lb://INVENTORY-SERVICE/"))
 				.build();
+	}
+	
+	@Bean
+	public DiscoveryClientRouteDefinitionLocator discoveryClientRouteDefinitionLocator (
+			ReactiveDiscoveryClient reactiveDiscoveryClient,
+			DiscoveryLocatorProperties discoveryLocatorProperties
+		)
+	{
+		// configuration dynamique des routes
+		return new DiscoveryClientRouteDefinitionLocator(reactiveDiscoveryClient, discoveryLocatorProperties);
 	}
 
 }
