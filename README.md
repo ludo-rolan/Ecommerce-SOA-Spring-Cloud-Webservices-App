@@ -35,3 +35,7 @@
 
 ### inventaire des produits à partir de la passerelle
 <img src="screenshots/gatewayListOfProducts.png" />
+
+
+### Eureka ui
+<img src="screenshots/eurekaUI.png" />
