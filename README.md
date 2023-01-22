@@ -8,3 +8,7 @@
 
 ### projection sur les clients
 <img src="screenshots/projectionFullCustomer.png" />
+
+
+### état de l'actuator dans le service client
+<img src="screenshots/customerServiceActuatorHealthState.png" />
