@@ -27,3 +27,11 @@
 
 ### état de l'actuator dans le service inventaire
 <img src="screenshots/inventoryServiceActuatorHealthState.png" />
+
+
+### liste des clients à partir de la passerelle
+<img src="screenshots/gatewayListOfClients.png" />
+
+
+### inventaire des produits à partir de la passerelle
+<img src="screenshots/gatewayListOfProducts.png" />
