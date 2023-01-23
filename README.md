@@ -47,3 +47,15 @@
 
 ### inventaire de produits par la route dynamique
 <img src="screenshots/listOfProductsByDynamicRoute.png" />
+
+
+### facture id=1 du service facturation
+<img src="screenshots/billId1FromBillingService.png" />
+
+
+### route dynamique du service facturation
+<img src="screenshots/dynamicRouteOfBillingService.png" />
+
+
+### facture id=1 du service facturation par la route dynamique
+<img src="screenshots/billId1FromBillingServiceByDynamicRoute.png" />
