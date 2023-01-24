@@ -59,3 +59,7 @@
 
 ### facture id=1 du service facturation par la route dynamique
 <img src="screenshots/billId1FromBillingServiceByDynamicRoute.png" />
+
+
+### Interface de manipulation des produits basé sur le client front-end Angular 2 avec de fausses données
+<img src="screenshots/readDeleteSearchProductsWithAndPagination.png" />
