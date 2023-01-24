@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ValidationErrors } from '@angular/forms';
 import { UUID } from 'angular2-uuid';
 import { Observable, of, throwError } from 'rxjs';
 import { PageProduct, Product } from '../model/product.model';
@@ -87,6 +88,48 @@ export class ProductService {
     
     return of({page: page, size: size, totalPages: totalPages, products: pageProducts});
 
+  }
+
+  public addNewProduct(product : Product) : Observable<Product>
+  {
+
+    product.id = UUID.UUID();
+    this.products.push(product);
+    return of(product);
+
+  }
+
+  public getProduct (id : string) : Observable<Product>
+  {
+
+    let product = this.products.find(p => p.id == id);
+    
+    if (product == undefined) return throwError(() => new Error("Product not found"))
+
+    return of(product);
+
+  }
+
+  getErrorMessage (fieldName : string, error : ValidationErrors)
+  {
+
+    if (error['required'])
+    {
+      return fieldName + " is required";
+    } else if (error['minlength']) {
+      return fieldName + " should have at least " + error['minlength']['requiredLength'] + " Characters";
+    } else if (error['min']) {
+      return fieldName + " should have min value " + error['min']['min'];
+    } else return "";
+
+  }
+
+  public updateProduct (product : Product) : Observable<Product>
+  {
+
+    this.products = this.products.map(p => (p.id == product.id) ? product : p)
+    return of(product);
+    
   }
 
 }

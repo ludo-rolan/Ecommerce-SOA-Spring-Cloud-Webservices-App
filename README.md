@@ -64,8 +64,21 @@
 ### Interface de manipulation des produits basé sur le client front-end Angular 2 avec de fausses données
 <img src="screenshots/readDeleteSearchProductsWithAndPagination.png" />
 
+
 ### Interface de connexion
 <img src="screenshots/authInterface.png" />
 
+
 ### nom utilisateur et déconnexion
 <img src="screenshots/userInfoAndLogoutAddedToNavbar.png" />
+
+
+### création de produit
+<img src="screenshots/createAndUpdateButtons.png" />
+<img src="screenshots/createProduct.png" />
+<img src="screenshots/newProduct.png" />
+
+
+### mise à jour de produit
+<img src="screenshots/updateProduct.png" />
+<img src="screenshots/updatedProduct.png" />

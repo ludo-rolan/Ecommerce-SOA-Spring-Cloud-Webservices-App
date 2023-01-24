@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Product } from '../model/product.model';
 import { AuthenticationService } from '../services/authentication.service';
 import { ProductService } from '../services/product.service';
@@ -24,7 +25,8 @@ export class ProductsComponent implements OnInit {
 	constructor(
     private productService : ProductService, 
     private fb : FormBuilder,
-    public authService : AuthenticationService
+    public authService : AuthenticationService,
+    private router : Router
   ) { }
 	
 	ngOnInit(): void {
@@ -116,13 +118,28 @@ export class ProductsComponent implements OnInit {
 
   }
 
-  gotoPage(i: number) {
+  gotoPage(i: number) 
+  {
 
     this.currentPage = i;
     if(this.currentAction == 'all')
       this.handleGetPageProducts();
     else 
       this.handleSearchProducts();
+    
+  }
+
+  handleNewProduct () 
+  {
+
+    this.router.navigateByUrl("/admin/newProduct");
+
+  }
+
+  handleEditProduct(p : Product) {
+
+    this.router.navigateByUrl("/admin/editProduct/" + p.id);
+
   }
 
 }
